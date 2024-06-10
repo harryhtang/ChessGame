@@ -1,6 +1,6 @@
 
 public class Position {
-	
+	private static String files = "abcdefgh", ranks = "12345678";
 	
 	private int x;
 	private int y;
@@ -32,6 +32,7 @@ public class Position {
 	
 	@Override
 	public String toString() {
-		return String.format("(%d,%d)", x, y);
+//		return String.format("(%d,%d)", x, y);		
+		return "" + files.charAt(x) + ranks.charAt(y);
 	}
 }

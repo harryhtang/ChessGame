@@ -7,5 +7,9 @@ public class ChessGame {
 		System.out.println(String.format("%s == %s is %b", p1, p2, 
 				p1.equals(p2)
 				));
+		
+		// 
+		//King king = new King(PColor.WHITE, new Position(1,2));
+		//  "Kb3"
 	}
 }
