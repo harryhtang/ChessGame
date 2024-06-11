@@ -8,6 +8,10 @@ public class ChessGame {
 				p1.equals(p2)
 				));
 		
+		
+		Position p3 = Position.fromString("a3"); // Position(4, 3), x=4,y=3
+		System.out.println(p3.getX());
+		System.out.println(p3.getY());
 		// 
 		//King king = new King(PColor.WHITE, new Position(1,2));
 		//  "Kb3"

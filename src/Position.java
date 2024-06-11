@@ -29,6 +29,11 @@ public class Position {
 		return false;		
 	}
 	
+	public static Position fromString(String s) {
+		int x = files.indexOf(s.charAt(0));
+		int y = ranks.indexOf(s.charAt(1));
+		return new Position(x,y);
+	}
 	
 	@Override
 	public String toString() {
