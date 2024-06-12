@@ -14,10 +14,11 @@ public class ChessGame {
 		System.out.println(p3.getY());
 
 		 
-		King king = new King(PColor.WHITE, new Position(1,2));
+		King king = new King(PColor.BLACK, new Position(1,2));
+		System.out.println(king); //  "♔b3" 
 		
-		//king.moveTo(new Position(2,4));
+		king.moveTo(new Position(2,4));
+		System.out.println(king); //  "♔b3" 
 		
-		System.out.println(king.getPossibleMoves()); //  "♔b3" 
 	}
 }

@@ -13,7 +13,7 @@ public class King extends Piece {
 	}
 	
 	public String toString() {
-		return "♔" + this.position;
+		return (this.color == PColor.WHITE ? "♔" : "♚") + this.position;
 	}
 	
 	
