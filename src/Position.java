@@ -18,6 +18,15 @@ public class Position {
 		return y;
 	}
 	
+	public Position add(int dx, int dy) {
+		int newX = this.x+dx;
+		int newY = this.y+dy;
+		if(newX >= 0 && newX < 8 && newY >= 0 && newY < 8) {
+			return new Position(newX, newY);
+		}
+		return null;
+	}
+	
 	public boolean equals(Object other) {
 		if (other == null) return false;
 		if (other instanceof Position) {
