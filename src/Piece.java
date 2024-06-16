@@ -9,6 +9,7 @@ public abstract class Piece {
 	public Piece(PColor c, Position p) {
 		this.color = c;
 		this.position = p;
+		this.isAlive = true;
 	}
 	
 	public abstract List<Position> getPossibleMoves();

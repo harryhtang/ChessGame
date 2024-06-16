@@ -4,8 +4,10 @@ public class ChessGame {
 	public static void main(String[] args) {
 		Board board = new Board();
 		board.printBoard();
-		
-		//		Position p1 = new Position(1, 2),
+		board.playerWhite.get(8).moveTo(new Position(1, 4));
+		board.updateGrid();
+		board.printBoard();
+//		Position p1 = new Position(1, 2),
 //				 p2 = new Position(2, 2);
 //		System.out.println(String.format("%s == %s is %b", p1, p2, 
 //				p1.equals(p2)

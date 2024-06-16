@@ -41,11 +41,41 @@ public class Board {
 	}
 	
 	public void updateGrid() {
+		for(int i = 8; i > 0; i--) {
+			for(int j = 0; j < 8; j++) {
+				grid[j][i-1] = null;
+			}
+		}
 		
+		for (Piece piece : playerWhite) {
+			int x = piece.position.getX(), y = piece.position.getY();
+			if(piece.isAlive) 
+				grid[x][y] = piece; 	
+		}
+		for (Piece piece : playerBlack) {
+			int x = piece.position.getX(), y = piece.position.getY();
+			if(piece.isAlive)
+				grid[x][y] = piece; 			
+		}
 	}
 	
 	public void printBoard() {
-		
+		System.out.println("------------------");
+		for(int i = 8; i > 0; i--) {
+			System.out.print(i);
+			System.out.print("|");
+			for(int j = 0; j < 8; j++) {
+				Piece p = grid[j][i-1];
+				String s = " ";
+				if (p != null)
+					s = p.toString().substring(0,1);
+//				String s = (p == null) ? "" : p;
+				System.out.print(s + "|");
+			}
+			System.out.println();
+		}
+		System.out.println("------------------");
+		System.out.println("  a b c d e f g h ");
 	}
 	
 
