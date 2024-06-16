@@ -7,6 +7,9 @@ public class ChessGame {
 		board.playerWhite.get(8).moveTo(new Position(1, 4));
 		board.updateGrid();
 		board.printBoard();
+		
+		Piece knight = board.getPiece(new Position(1,0));
+		System.out.println(knight.getPossibleMoves(board));
 //		Position p1 = new Position(1, 2),
 //				 p2 = new Position(2, 2);
 //		System.out.println(String.format("%s == %s is %b", p1, p2, 

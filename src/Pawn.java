@@ -10,7 +10,7 @@ public class Pawn extends Piece {
 		this.isFirstMove = true;
 	}
 	
-	public List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves(Board board) {
 		// TODO
 		return new ArrayList<Position>();
 	}

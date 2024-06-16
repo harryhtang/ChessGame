@@ -59,6 +59,10 @@ public class Board {
 		}
 	}
 	
+	public Piece getPiece(Position p) {
+		return grid[p.getX()][p.getY()];
+	}
+	
 	public void printBoard() {
 		System.out.println("------------------");
 		for(int i = 8; i > 0; i--) {

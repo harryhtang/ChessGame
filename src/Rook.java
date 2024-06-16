@@ -8,7 +8,7 @@ public class Rook extends Piece {
 		super(c, p);
 	}
 	
-	public List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves(Board board) {
 		// TODO
 		return new ArrayList<Position>();
 	}

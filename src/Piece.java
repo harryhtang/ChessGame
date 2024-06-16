@@ -12,7 +12,7 @@ public abstract class Piece {
 		this.isAlive = true;
 	}
 	
-	public abstract List<Position> getPossibleMoves();
+	public abstract List<Position> getPossibleMoves(Board board);
 	public abstract String toString();
 	
 	public void moveTo(Position newPos) {
