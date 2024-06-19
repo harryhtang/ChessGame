@@ -11,7 +11,80 @@ public class Pawn extends Piece {
 	}
 	
 	public List<Position> getPossibleMoves(Board board) {
-		// TODO
+		List<Position> pms = new ArrayList<Position>();
+		if(!this.isAlive) 
+		 return pms;
+		
+		if (this.color == PColor.WHITE) {
+			if (this.isFirstMove) {
+				Position newPos = this.position.add(0, 2);
+				if (newPos != null) {
+					Piece p = board.getPiece(newPos);
+					if (p == null) {
+						pms.add(newPos);
+					}
+				}
+			}
+
+			Position newPos = this.position.add(0, 1);
+			if (newPos != null) {
+				Piece p = board.getPiece(newPos);
+				if (p == null) {
+					pms.add(newPos);
+				}
+			}
+
+			newPos = this.position.add(1, 1);
+			if (newPos != null) {
+				Piece p = board.getPiece(newPos);
+				if (p != null && p.color != this.color) {
+					pms.add(newPos);
+				}
+			}
+
+			newPos = this.position.add(-1, 1);
+			if (newPos != null) {
+				Piece p = board.getPiece(newPos);
+				if (p != null && p.color != this.color) {
+					pms.add(newPos);
+				}
+			}
+		}
+		else { // black
+			if (this.isFirstMove) {
+				Position newPos = this.position.add(0, -2);
+				if (newPos != null) {
+					Piece p = board.getPiece(newPos);
+					if (p == null) {
+						pms.add(newPos);
+					}
+				}
+			}
+
+			Position newPos = this.position.add(0, -1);
+			if (newPos != null) {
+				Piece p = board.getPiece(newPos);
+				if (p == null) {
+					pms.add(newPos);
+				}
+			}
+
+			newPos = this.position.add(1, -1);
+			if (newPos != null) {
+				Piece p = board.getPiece(newPos);
+				if (p != null && p.color != this.color) {
+					pms.add(newPos);
+				}
+			}
+
+			newPos = this.position.add(-1, -1);
+			if (newPos != null) {
+				Piece p = board.getPiece(newPos);
+				if (p != null && p.color != this.color) {
+					pms.add(newPos);
+				}
+			}
+		}
 		return new ArrayList<Position>();
 	}
 	
