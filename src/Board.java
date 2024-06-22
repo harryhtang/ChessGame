@@ -67,12 +67,10 @@ public class Board {
 		Piece king = getPieces("King", getNextPColor(color)).get(0);
 		Position kingPosition = king.position;
 		for (Piece p : player) {
-			if (p.isAlive) {
-				List<Position> pms = p.getPossibleMoves(this);
-				for (Position pos : pms) {
-					if (pos.equals(kingPosition)) {
-						return true;
-					}
+			List<Position> pms = p.getPossibleMoves(this);
+			for (Position pos : pms) {
+				if (pos.equals(kingPosition)) {
+					return true;
 				}
 			}
 		}
@@ -81,6 +79,35 @@ public class Board {
 
 	public boolean isBeingChecked(PColor color) {
 		return isCheck(getNextPColor(color));
+	}
+
+	public boolean isCheckMate(PColor color) {
+		if (!isCheck(color))
+			return false;
+
+		Piece King = getPieces("King", getNextPColor(color)).get(0);
+		List<Piece> checkPieces = new ArrayList<>();
+		for (Piece p : getPlayer(color)) {
+			if (p.getPossibleMoves(this).contains(King)) {
+				checkPieces.add(p);
+			}
+		}
+
+		if (checkPieces.size() > 1) {
+			if (King.getPossibleMoves(this).size() == 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		// 1. how many pieces are checking?
+		// 2. #pieces >= 2, King has to move
+		// 3. #pieces == 1
+		// A. kill the piece
+		// B. move the king
+		// C. block the path
+
+		return false;
 	}
 
 	public PColor getNextPColor(PColor color) {
@@ -95,6 +122,7 @@ public class Board {
 		List<Piece> ps = new ArrayList<>();
 		List<Piece> player = getPlayer(color); // (color == PColor.WHITE) ? playerWhite : playerBlack;
 
+		// TODO
 		if (name == "King")
 			ps.add(player.get(0));
 
