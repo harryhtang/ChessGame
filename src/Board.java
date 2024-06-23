@@ -93,6 +93,12 @@ public class Board {
 			}
 		}
 
+		// case 1: # ==0
+		if (checkPieces.size() == 0) {
+			return false;
+		}
+		
+		// case 2: # >= 2
 		if (checkPieces.size() > 1) {
 			if (King.getPossibleMoves(this).size() == 0) {
 				return true;
@@ -100,12 +106,23 @@ public class Board {
 				return false;
 			}
 		}
-		// 1. how many pieces are checking?
-		// 2. #pieces >= 2, King has to move
-		// 3. #pieces == 1
-		// A. kill the piece
-		// B. move the king
-		// C. block the path
+		
+		// case 3 # == 1
+		if (checkPieces.size() == 1) {
+			Piece attackPiece = checkPieces.get(0);
+			for (Piece p : getPlayer(getNextPColor(color))) {
+				if (p.getPossibleMoves(this).contains(attackPiece)) {
+					return false;
+				}
+			}
+		}
+		
+		// DONE 1. how many pieces are checking?
+		// DONE 2. #pieces >= 2, King has to move
+		// 3. #3.pieces == 1
+		//     DONE A. kill the piece
+		//     B. move the king
+		//     C. block the path
 
 		return false;
 	}
