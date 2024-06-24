@@ -82,8 +82,8 @@ public class Board {
 	}
 
 	public boolean isCheckMate(PColor color) {
-		if (!isCheck(color))
-			return false;
+//		if (!isCheck(color))
+//			return false;
 
 		Piece King = getPieces("King", getNextPColor(color)).get(0);
 		List<Piece> checkPieces = new ArrayList<>();
@@ -113,6 +113,19 @@ public class Board {
 			for (Piece p : getPlayer(getNextPColor(color))) {
 				if (p.getPossibleMoves(this).contains(attackPiece)) {
 					return false;
+				}
+			}
+			
+			if(King.getPossibleMoves(this).size() > 0) {
+				return false;
+			}
+			
+			List<Position> posInMiddle = new ArrayList<>(); // TODO getPositionBetween(attackPiece, King)
+			for (Piece p : getPlayer(getNextPColor(color))) {
+				for(Position pos : posInMiddle) {
+					if (p.getPossibleMoves(this).contains(pos)) {
+						return false;
+					}
 				}
 			}
 		}
