@@ -120,8 +120,9 @@ public class Board {
 				return false;
 			}
 			
-			List<Position> posInMiddle = new ArrayList<>(); // TODO getPositionBetween(attackPiece, King)
+			List<Position> posInMiddle = Position.getPositionBetween(attackPiece.position, King.position);
 			for (Piece p : getPlayer(getNextPColor(color))) {
+				if (p instanceof Knight || p instanceof Pawn) continue;
 				for(Position pos : posInMiddle) {
 					if (p.getPossibleMoves(this).contains(pos)) {
 						return false;

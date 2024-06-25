@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Position {
 	private static String files = "abcdefgh", ranks = "12345678";
@@ -48,5 +50,35 @@ public class Position {
 	public String toString() {
 //		return String.format("(%d,%d)", x, y);		
 		return "" + files.charAt(x) + ranks.charAt(y);
+	}
+	
+	public static List<Position> getPositionBetween(Position startingPoint, Position endingPoint) {
+		int x0 = startingPoint.getX();
+		int y0 = startingPoint.getY();
+		int x1 = endingPoint.getX();
+		int y1 = endingPoint.getY();
+		int minY = Math.min(y0, y1);
+		int maxY = Math.max(y0, y1);
+		int minX = Math.min(x0, x1);
+		int maxX = Math.max(x0, x1);
+		List<Position> positionsBetween = new ArrayList<>();
+		if(x0 == x1) {
+			for(int y = minY+1; y<maxY; y++ ) {
+				positionsBetween.add(new Position(x0, y));
+			}
+		}
+		else if(y0 == y1) {
+			for(int x = minX+1; x<maxX; x++) {
+				positionsBetween.add(new Position(x, y0));
+			}
+		}
+		// TODO diagonal 
+		else {
+			for(int x = minX+1, y = minY+1; x<maxX && y<maxY; x++, y++) {
+				positionsBetween.add(new Position(x, y));
+			}
+		}
+		
+		return positionsBetween;
 	}
 }

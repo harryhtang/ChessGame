@@ -2,6 +2,7 @@
 public class ChessGame {
 
 	public static void main(String[] args) {
+		
 		Board board = new Board();
 		board.printBoard();
 		board.playerWhite.get(8).moveTo(new Position(1, 4));
