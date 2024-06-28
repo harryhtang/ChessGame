@@ -58,6 +58,20 @@ public class Board {
 		}
 	}
 
+	public void run(Step step) {
+		if (step.killedPiece != null)
+			step.killedPiece.isAlive = false;
+		step.piece.position = step.newPos;
+		updateGrid();
+	}
+	
+	public void undo(Step step) {
+		if (step.killedPiece != null)
+			step.killedPiece.isAlive = true;
+		step.piece.position = step.oldPos;
+		updateGrid();
+	}
+	
 	public Piece getPiece(Position p) {
 		return grid[p.getX()][p.getY()];
 	}

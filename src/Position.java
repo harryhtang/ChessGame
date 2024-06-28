@@ -72,7 +72,7 @@ public class Position {
 				positionsBetween.add(new Position(x, y0));
 			}
 		}
-		// TODO diagonal 
+		
 		else {
 			for(int x = minX+1, y = minY+1; x<maxX && y<maxY; x++, y++) {
 				positionsBetween.add(new Position(x, y));
